@@ -1,22 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import UseEffectTest from "./components/UseEffectTest";
+import { useState } from "react";
+import { Button } from "react-bootstrap";
 
 function App() {
+  const [boolean, setBoolean] = useState(true);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {boolean && <UseEffectTest />}
+
+        <Button variant="danger" onClick={() => setBoolean(!boolean)}>
+          Click me
+        </Button>
       </header>
     </div>
   );
